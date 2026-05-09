@@ -70,7 +70,7 @@ export default function ExpenseTable({ expenses, query = '', onDelete }) {
           </thead>
           <tbody className="divide-y divide-paper-200">
             {filtered.map((tx) => {
-              const cat = CATEGORIES.find((c) => c.id === tx.category) || CATEGORIES.find((c) => c.id === 'other');
+              const cat = CATEGORIES.find((c) => c.id === tx.category) || CATEGORIES[0];
               return (
                 <tr key={tx.id} className="group hover:bg-paper-100 transition-colors">
                   <td className="px-5 md:px-6 py-3">
