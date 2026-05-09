@@ -10,14 +10,13 @@ import { CATEGORIES } from '../data/mockData.js';
  * date, note.
  */
 export default function AddExpenseModal({ open, onClose, onAdd }) {
-  const blank = () => ({
-    name: '',
-    amount: '',
-    category: 'food',
-    customCategory: '',
-    date: new Date().toISOString().slice(0, 10),
-    note: '',
-  });
+const blank = () => ({
+  name: '',
+  amount: '',
+  category: 'food',
+  date: new Date().toISOString().slice(0, 10),
+  note: '',
+});
   const [form, setForm] = useState(blank);
   const [errors, setErrors] = useState({});
 
@@ -36,7 +35,7 @@ export default function AddExpenseModal({ open, onClose, onAdd }) {
   if (!open) return null;
 
   const update = (k, v) => setForm((f) => ({ ...f, [k]: v }));
-  const isOther = form.category === 'other';
+
 
   const submit = (e) => {
     e.preventDefault();
@@ -123,17 +122,7 @@ export default function AddExpenseModal({ open, onClose, onAdd }) {
             </div>
 
             {/* When "Other" is selected, let the user type a free-form label. */}
-            {isOther && (
-              <div className="mt-2">
-                <Input
-                  id="customCategory"
-                  label="Custom category (optional)"
-                  placeholder="e.g. Gift, Donation, Travel"
-                  value={form.customCategory}
-                  onChange={(e) => update('customCategory', e.target.value)}
-                />
-              </div>
-            )}
+            
           </div>
 
           <Input

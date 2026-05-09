@@ -4,13 +4,18 @@
  */
 
 export const CATEGORIES = [
-  { id: 'food',     label: 'Food & Dining',  icon: 'utensils',  hue: 25  },
-  { id: 'transport',label: 'Transport',      icon: 'car',       hue: 220 },
-  { id: 'shopping', label: 'Shopping',       icon: 'bag',       hue: 290 },
-  { id: 'bills',    label: 'Bills & Utilities', icon: 'bolt',   hue: 50  },
-  { id: 'health',   label: 'Health',         icon: 'heart',     hue: 0   },
-  { id: 'leisure',  label: 'Entertainment',  icon: 'film',      hue: 175 },
-  { id: 'other',    label: 'Other',          icon: 'tag',       hue: 110 },
+  { id: 'food',          label: 'Food & Dining',    icon: 'utensils',  hue: 25  },
+  { id: 'transport',     label: 'Transport',         icon: 'car',       hue: 220 },
+  { id: 'shopping',      label: 'Shopping',          icon: 'bag',       hue: 290 },
+  { id: 'bills',         label: 'Bills & Utilities', icon: 'bolt',      hue: 50  },
+  { id: 'health',        label: 'Health',            icon: 'heart',     hue: 0   },
+  { id: 'entertainment', label: 'Entertainment',     icon: 'film',      hue: 175 },
+  { id: 'education',     label: 'Education',         icon: 'book',      hue: 240 },
+  { id: 'travel',        label: 'Travel',            icon: 'map',       hue: 190 },
+  { id: 'personalcare',  label: 'Personal Care',     icon: 'user',      hue: 320 },
+  { id: 'home',          label: 'Home & Rent',       icon: 'home',      hue: 30  },
+  { id: 'work',          label: 'Work',              icon: 'briefcase', hue: 210 },
+  { id: 'gifts',         label: 'Gifts',             icon: 'gift',      hue: 350 },
 ];
 
 // `name` describes what the expense was for. `customCategory` only set when
