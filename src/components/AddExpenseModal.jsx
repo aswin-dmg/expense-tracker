@@ -46,12 +46,12 @@ export default function AddExpenseModal({ open, onClose, onAdd }) {
     if (Object.keys(errs).length) { setErrors(errs); return; }
 
     onAdd({
-      name: form.name.trim(),
-      amount: parseFloat(form.amount),
-      category: form.category,
-      date: form.date,
-      note: form.note.trim(),
-    });
+  name: form.name.trim(),
+  amount: parseFloat(form.amount),
+  category: isOther && form.customCategory.trim() ? form.customCategory.trim().toLowerCase() : form.category,
+  date: form.date,
+  note: form.note.trim(),
+});
     onClose();
   };
 
