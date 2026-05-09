@@ -31,9 +31,10 @@ export default function App() {
       setError(null);
       try {
         const { data, error } = await supabase
-          .from('Expenses')
-          .select('*')
-          .order('created_at', { ascending: false });
+  .from('Expenses')
+  .select('*')
+  .eq('user_id', user.id)
+  .order('created_at', { ascending: false });
         if (error) throw error;
         setExpenses(data ?? []);
       } catch (err) {
@@ -44,7 +45,7 @@ export default function App() {
       }
     };
     fetchExpenses();
-  }, [isAuthed]);
+  }, [isAuthed, user]);
 
   const handleLogin = (user) => { setUser(user); setIsAuthed(true); setRoute('dashboard'); };
   const handleSignup = (user) => { setUser(user); setIsAuthed(true); setRoute('dashboard'); };
@@ -56,15 +57,16 @@ export default function App() {
     setExpenses([]);
   };
 
-  const addExpense = async (expense) => {
-    const { data, error } = await supabase
-      .from('Expenses')
-      .insert([expense])
-      .select()
-      .single();
-    if (error) { console.error('Failed to add expense:', error); return; }
-    setExpenses((xs) => [data, ...xs]);
-  };
+const addExpense = async (expense) => {
+  const { data, error } = await supabase
+    .from('Expenses')
+    .insert([{ ...expense, user_id: user.id }])
+    .select()
+    .single();
+
+  if (error) { console.error('Failed to add expense:', error); return; }
+  setExpenses((xs) => [data, ...xs]);
+};
 
   const deleteExpense = async (id) => {
     const { error } = await supabase.from('Expenses').delete().eq('id', id);
