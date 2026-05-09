@@ -49,7 +49,6 @@ export default function AddExpenseModal({ open, onClose, onAdd }) {
       name: form.name.trim(),
       amount: parseFloat(form.amount),
       category: form.category,
-      customCategory: isOther && form.customCategory.trim() ? form.customCategory.trim() : undefined,
       date: form.date,
       note: form.note.trim(),
     });
