@@ -67,10 +67,12 @@ export default function Dashboard({ expenses, onAddExpense, onDeleteExpense, onL
 });
     const sorted = Object.entries(byCat).sort((a, b) => b[1] - a[1]);
     const top = sorted[0];
-    const topCat = top ? CATEGORIES.find((c) => c.id === top[0]) : null;
+   const topCat = top ? (CATEGORIES.find((c) => c.id === top[0]) || null) : null;
     const grandTotal = sorted.reduce((s, [, v]) => s + v, 0);
-    const topThree = sorted.slice(0, 3).map(([id, amt]) => ({
-      cat: CATEGORIES.find((c) => c.id === id),
+    const topThree = sorted.slice(0, 3)
+  .filter(([id]) => CATEGORIES.find((c) => c.id === id))
+  .map(([id, amt]) => ({
+  cat: CATEGORIES.find((c) => c.id === id),
       amount: amt,
       pct: grandTotal > 0 ? (amt / grandTotal) * 100 : 0,
     }));
