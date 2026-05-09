@@ -99,7 +99,7 @@ export default function ExpenseTable({ expenses, query = '', onDelete }) {
                           className="opacity-0 group-hover:opacity-100 text-ink-400 hover:text-rose-500 transition-opacity"
                           aria-label="Delete"
                         >
-                          <Icon name="bin" className="w-4 h-4" />
+                          <Icon name="x" className="w-4 h-4" />
                         </button>
                       )}
                     </div>
