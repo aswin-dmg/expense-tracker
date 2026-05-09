@@ -45,9 +45,6 @@ export default function Topbar({ user, query, onQueryChange, onLogout, onOpenSet
           className="w-10 h-10 rounded-lg flex items-center justify-center text-ink-700 hover:bg-paper-200 relative"
           aria-label="Notifications"
         >
-          <Icon name="bell" />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-brand-500 rounded-full" />
-        </button>
 
         {/* Profile dropdown */}
         <div className="relative" ref={ref}>
